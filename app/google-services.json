@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "684232921044",
+    "firebase_url": "https://sokyakom.firebaseio.com",
+    "project_id": "sokyakom",
+    "storage_bucket": "sokyakom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684232921044:android:c05be1bd44d0f9a3d39041",
+        "android_client_info": {
+          "package_name": "com.khalej.avan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684232921044-chiqjqgqg83bc4nsllv71qblj9s43fsn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.khalej.avan",
+            "certificate_hash": "22fd65c93727d47d3cf5938ca60e08c55096fe37"
+          }
+        },
+        {
+          "client_id": "684232921044-nim219m2kabflqif6g3d2p9tjmqi76u2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdR_cnT3FrSXMKFv7WqW2PtYYC90alji8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684232921044-nim219m2kabflqif6g3d2p9tjmqi76u2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
