@@ -1,10 +1,12 @@
 package com.khalej.avan.model;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
+
 
 public class contact_general {
     @SerializedName("payload")
-    media payload;
+    List<media> payload;
     @SerializedName("status")
     boolean status;
     @SerializedName("messages")
@@ -12,11 +14,11 @@ public class contact_general {
     @SerializedName("code")
     int code;
 
-    public media getPayload() {
+    public List<media> getPayload() {
         return payload;
     }
 
-    public void setPayload(media payload) {
+    public void setPayload(List<media> payload) {
         this.payload = payload;
     }
 
@@ -46,6 +48,16 @@ public class contact_general {
     public class media{
         @SerializedName("media")
         contact_slider media;
+        @SerializedName("media_links")
+        List<String> slider_images;
+
+        public List<String> getSlider_images() {
+            return slider_images;
+        }
+
+        public void setSlider_images(List<String> slider_images) {
+            this.slider_images = slider_images;
+        }
 
         public contact_slider getMedia() {
             return media;

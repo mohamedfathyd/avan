@@ -10,6 +10,8 @@
     <string name="Repair">فني أصلاح</string>
     <string name="Winch">ونش</string>
     <string name="SubScribeM">أشتراك شهري</string>
+    <string name="admin_order">طلبات الأدمن</string>
+    <string name="warehouse_order">طلبات المستودع</string>
     <string name="markets">المتاجر</string>
     <string name="orderMandop">أطلب مندوب</string>
     <string name="passwordValied">كلمة المرور يجب ان تكون اكثر من 5 أحرف او ارقام</string>

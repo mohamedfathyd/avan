@@ -7,6 +7,8 @@
     <string name="UnSubScribe">UnSubScribe</string>
     <string name="user">User</string>
     <string name="Repair">Repair technician</string>
+    <string name="admin_order">Admin order</string>
+    <string name="warehouse_order">Warehouse order</string>
     <string name="Winch">Winch</string>
     <string name="personIdd">Personal ID</string>
     <string name="markets">Markets</string>
@@ -135,9 +137,9 @@ Send us product details and we will bring it for you. </string>
     <string name="load">Your request is being registered</string>
     <string name="lang">عربي</string>
     <string name="whoustxt"> It is an application for an e-commerce platform that allows UAE merchants to view and sell products. Our motto is always from home to home. </string>
-    <string name = "num_palce"> Building number </string>
-    <string name = "num_room"> Apartment number </string>
-    <string name = "place"> floor </string>
+    <string name="num_palce"> Building number </string>
+    <string name="num_room"> Apartment number </string>
+    <string name="place"> floor </string>
     <string name="address_type">address type</string>
     <string name="name">name</string>
     <string name="address">Email</string>

@@ -38,7 +38,7 @@ public class Note_fragment extends Fragment {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_notes, container, false);
        // id = getArguments().getInt("id");
-        desc=view.findViewById(R.id.textInputEditTextname);
+        desc=view.findViewById(R.id.desc);
         rate=view.findViewById(R.id.rate);
         appCompatButton=view.findViewById(R.id.appCompatButtonRegister);
         appCompatButton.setOnClickListener(new View.OnClickListener() {
@@ -54,15 +54,15 @@ public class Note_fragment extends Fragment {
 
         progressDialog = ProgressDialog.show(getContext(), "جاري ارسال رسالتك", "Please wait...", false, false);
         progressDialog.show();
-        if(rate.getNumStars()==1){
+        if(rate.getRating()<=1){
             rateValue="terrible";
-        }else if(rate.getNumStars()==2){
+        }else if(rate.getRating()>1&&rate.getRating()<=2){
             rateValue="bad";
         }
-        else if(rate.getNumStars()==3){
+        else if(rate.getRating()>2&&rate.getRating()<=3){
             rateValue="ok";
         }
-        else if(rate.getNumStars()==4){
+        else if(rate.getRating()>3&&rate.getRating()<=4){
             rateValue="great";
         }
         else {

@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="3dp"
+    android:layout_margin="10dp"
+    android:layoutDirection="rtl"
+    android:background="@color/transparent"
+    >
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:layout_centerVertical="true"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@color/red_dark"
+
+        app:cardElevation="8dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:id="@+id/a"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:weightSum="6"
+                >
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_weight="0.5"
+                    android:layout_gravity="center_vertical"
+                    android:src="@drawable/iconmetrolocation1"
+                    />
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="5.2"
+                    android:orientation="vertical"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="10dp"
+
+                        android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/title"
+                        android:fontFamily="@font/taj"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:text="من :"
+                        android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/address_from"
+                        android:fontFamily="@font/taj"
+                        android:textColor="@color/white"
+                        android:textSize="16dp"
+                        android:text=""
+                        android:textStyle="bold"
+                        />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_gravity="start"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/taj"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"
+                            android:text="إلي :"
+                            android:textStyle="bold"
+                            />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:id="@+id/address_to"
+                            android:fontFamily="@font/taj"
+                            android:textColor="@color/white"
+                            android:textSize="16dp"
+                            android:text=""
+                            android:textStyle="bold"
+                            />
+                    </LinearLayout>
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.3"
+                    android:layout_gravity="center"
+                    android:layout_margin="5dp"
+                    android:scaleType="fitXY"
+                    android:padding="15dp"
+                    android:id="@+id/cancel_button"
+                    android:background="@drawable/background_white"
+                    android:src="@drawable/dropdownred"
+                    />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

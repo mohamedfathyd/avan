@@ -28,12 +28,12 @@ public interface apiinterface_home {
 
     @FormUrlEncoded
     @POST("api/contacts")
-    Call<ResponseBody> CallUs(@Field("name") String name, @Field("phone") String address, @Field("type") String type,
+    Call<ResponseBody> CallUs(@Field("name") String name, @Field("email") String address,@Field("phone") String phone,
                               @Field("message") String message);
 
     @FormUrlEncoded
     @POST("api/request-shipments")
-    Call<ResponseBody> confirmShipment(@Field("description") String description, @Field("address_id") String address_id);
+    Call<ResponseBody> confirmShipment(@HeaderMap Map<String, String> headers,@Field("description") String description, @Field("address_id") String address_id);
 
     @FormUrlEncoded
     @POST("api/forget/password")
@@ -48,7 +48,7 @@ public interface apiinterface_home {
     @POST("api/forget/password/reset")
     Call<Reset>getcontacts_tokenPassword(@Field("email") String kayWord, @Field("token") String password);
 
-    @GET("api/general?lang=ar")
+    @GET("api/banners")
     Call<contact_general> getcontacts_generalData();
 
 
@@ -56,7 +56,7 @@ public interface apiinterface_home {
     @FormUrlEncoded
     @POST("api/feedback")
     Call<ResponseBody> getcontacts_AddRate( @Field("rate") String rate,
-                                           @Field("des") String des);
+                                           @Field("comment") String des);
 
 
 
@@ -153,5 +153,10 @@ public interface apiinterface_home {
                                       @Field("latitude") double latitude,@Field("longitude") double longitude,
                                       @Field("city_id") String city_id);
 
+    @GET("api/shipments/delivered-shipments")
+    Call<Orders> userOrders(@HeaderMap Map<String, String> headers);
+
+    @GET("api/shipments/tasks/received")
+    Call<Orders> userOrders_task(@HeaderMap Map<String, String> headers);
 }
 

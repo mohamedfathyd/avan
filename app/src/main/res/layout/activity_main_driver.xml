@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/maska"
+    android:layoutDirection="rtl"
+    >
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/app_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_alignParentEnd="true"
+        android:background="@color/transparent"
+        local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        local:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ic_power_settings_new_black_24dp"
+            android:id="@+id/logout"
+            android:layout_height="30dp" />
+    </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="محمد فتحي عبد الباسط"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@+id/app_bar"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/taj"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="18dp"
+        android:id="@+id/name"
+        android:background="@drawable/backshapeblue"
+        />
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="35dp"
+        android:id="@+id/MyTabs"
+        app:tabGravity="fill"
+        android:layout_below="@+id/name"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="@color/red_dark"
+        app:tabTextColor="@color/blue"
+        android:layout_height="40dp"/>
+    <androidx.viewpager.widget.ViewPager xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/MyTabs"
+        android:id="@+id/MyPage"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        />
+</RelativeLayout>

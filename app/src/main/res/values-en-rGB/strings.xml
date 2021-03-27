@@ -9,6 +9,8 @@
     <string name="Repair">Repair technician</string>
     <string name="Winch">Winch</string>
     <string name="personIdd">Personal ID</string>
+    <string name="admin_order">Admin order</string>
+    <string name="warehouse_order">Warehouse order</string>
     <string name="markets">Markets</string>
     <string name="track_ship">Track Shipment</string>
     <string name="enter_number_track">enter track num</string>

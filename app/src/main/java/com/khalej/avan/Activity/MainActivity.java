@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     TextView text1,text2,text3,text4;
     ImageView image1,image2,image3,image4;
+    int x=0;
     LinearLayout social,feedback,address,whous,callus,see,impo,terms,logOut;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity
                 Fragment fragment;
                 fragment = new main_fragment();
                 loadFragment(fragment);
+                x=0;
 
             }
         });
@@ -128,6 +130,7 @@ public class MainActivity extends AppCompatActivity
                 bundle.putString("track","");
                 fragment.setArguments(bundle);
                 loadFragment(fragment);
+                x=1;
             }
         });
         copon.setOnClickListener(new View.OnClickListener() {
@@ -148,6 +151,7 @@ public class MainActivity extends AppCompatActivity
                 Fragment fragment;
                 fragment = new Ordera_fragment();
                 loadFragment(fragment);
+                x=1;
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {
@@ -168,6 +172,7 @@ public class MainActivity extends AppCompatActivity
                 Fragment fragment;
                 fragment = new Profile_fragment();
                 loadFragment(fragment);
+                x=1;
             }
         });
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -208,6 +213,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new Address_fragment();
                 loadFragment(fragment);
                 drawer.closeDrawer(GravityCompat.START);
+                x=1;
             }
         });
         social.setOnClickListener(new View.OnClickListener() {
@@ -217,6 +223,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new Social_fragment();
                 loadFragment(fragment);
                 drawer.closeDrawer(GravityCompat.START);
+                x=1;
             }
         });
         whous.setOnClickListener(new View.OnClickListener() {
@@ -226,6 +233,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new aboutApp_fragment();
                 loadFragment(fragment);
                 drawer.closeDrawer(GravityCompat.START);
+                x=1;
             }
         });
         callus.setOnClickListener(new View.OnClickListener() {
@@ -244,6 +252,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new terms_fragment();
                 loadFragment(fragment);
                 drawer.closeDrawer(GravityCompat.START);
+                x=1;
             }
         });
         see.setOnClickListener(new View.OnClickListener() {
@@ -253,6 +262,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new vision_fragment();
                 loadFragment(fragment);
                 drawer.closeDrawer(GravityCompat.START);
+                x=1;
             }
         });
         feedback.setOnClickListener(new View.OnClickListener() {
@@ -271,6 +281,7 @@ public class MainActivity extends AppCompatActivity
                 fragment = new mission_fragment();
                 loadFragment(fragment);
                 drawer.closeDrawer(GravityCompat.START);
+                x=1;
             }
         });
         logOut.setOnClickListener(new View.OnClickListener() {
@@ -295,15 +306,7 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-    @Override
-    public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
-    }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -328,5 +331,25 @@ public class MainActivity extends AppCompatActivity
         transaction.addToBackStack(null);
         transaction.commit();
     }
+    @Override
+    public void onBackPressed() {
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
+        }
+        if(x==0){
+            finish();}
+        else{
+            Fragment fragment;
+            fragment = new main_fragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt("id",intent.getIntExtra("id",0));
+            fragment.setArguments(bundle);
+            loadFragment(fragment);
 
+            x=0;
+        }
+    }
 }

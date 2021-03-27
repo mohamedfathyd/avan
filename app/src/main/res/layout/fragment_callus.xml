@@ -104,7 +104,49 @@
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="15dp" />
                         </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp" >
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/backshapeemptybluew"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginLeft="10dp"
+                                android:orientation="horizontal"
+                                android:layout_marginRight="10dp"
+                                android:weightSum="6"
+                                >
 
+                                <EditText
+                                    android:layout_width="0dp"
+                                    android:layout_gravity="center_vertical"
+                                    android:paddingRight="5dp"
+                                    android:paddingLeft="5dp"
+                                    android:fontFamily="@font/taj"
+                                    android:textColor="@color/black"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="6"
+                                    android:id="@+id/textInputEditTextphonee"
+                                    android:inputType="phone"
+                                    android:background="@null"
+                                    />
+                            </LinearLayout>
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginLeft="30dp"
+                                android:layout_marginTop="0dp"
+                                android:fontFamily="@font/taj"
+                                android:layout_marginRight="30dp"
+                                android:background="#FCFCFC"
+                                android:padding="5dp"
+                                android:text="@string/phone"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:textSize="15dp" />
+                        </RelativeLayout>
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -130,7 +172,7 @@
                                     android:layout_height="wrap_content"
                                     android:layout_weight="6"
                                     android:id="@+id/textInputEditTextphone"
-                                    android:inputType="phone"
+                                    android:inputType="textEmailAddress"
                                     android:background="@null"
                                     />
                             </LinearLayout>
@@ -144,7 +186,7 @@
                                 android:layout_marginRight="30dp"
                                 android:background="#FCFCFC"
                                 android:padding="5dp"
-                                android:text="@string/phone"
+                                android:text="@string/address"
                                 android:textColor="@color/colorPrimaryDark"
                                 android:textSize="15dp" />
                         </RelativeLayout>

@@ -26,7 +26,7 @@ import retrofit2.Response;
 
 public class CallUs_fragment extends Fragment {
     EditText textInputEditTextname,textInputEditTextphone,textInputEditTextsubject,
-            textInputEditTextmessage;
+            textInputEditTextmessage,textInputEditTextphonee;
     AppCompatButton appCompatButton;
     private apiinterface_home apiinterface;
     ProgressDialog progressDialog;
@@ -40,6 +40,7 @@ public class CallUs_fragment extends Fragment {
         textInputEditTextname=view.findViewById(R.id.textInputEditTextname);
         textInputEditTextsubject=view.findViewById(R.id.textInputEditTextsubject);
         textInputEditTextphone=view.findViewById(R.id.textInputEditTextphone);
+        textInputEditTextphonee=view.findViewById(R.id.textInputEditTextphonee);
         textInputEditTextmessage=view.findViewById(R.id.textInputEditTextmessage);
         appCompatButton=view.findViewById(R.id.appCompatButtonRegister);
         appCompatButton.setOnClickListener(new View.OnClickListener() {
@@ -59,7 +60,7 @@ public class CallUs_fragment extends Fragment {
 
         apiinterface = Apiclient_home.getapiClient().create(apiinterface_home.class);
         Call<ResponseBody> call = apiinterface.CallUs(textInputEditTextname.getText().toString(),textInputEditTextphone.getText().toString(),
-              "suggestions", textInputEditTextmessage.getText().toString());
+                textInputEditTextphonee.getText().toString(), textInputEditTextmessage.getText().toString());
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {

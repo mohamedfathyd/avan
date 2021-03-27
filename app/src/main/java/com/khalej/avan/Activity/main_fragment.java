@@ -47,7 +47,7 @@ public class main_fragment extends Fragment {
     RelativeLayout order;
     int x = 0;
     int y = 0;
-    private contact_slider contactList_annonce ;
+    private List<contact_general.media> contactList_annonce ;
     private com.khalej.avan.model.contact_general contact_general;
     private RecyclerAdapter_first_annonce_banner recyclerAdapter_annonce;
     ProgressDialog progressDialog;
@@ -139,10 +139,9 @@ public class main_fragment extends Fragment {
             public void onResponse(Call<contact_general> call, Response<contact_general> response) {
                 contact_general=response.body();
                 try {
-                    contactList_annonce=contact_general.getPayload().getMedia();
-                    List<String> Images = contactList_annonce.getSlider_images();
-                    if (Images.size() != 0 || !(Images.isEmpty())) {
-                        recyclerAdapter_annonce = new RecyclerAdapter_first_annonce_banner(getActivity(), Images, recyclerView2);
+                    contactList_annonce=contact_general.getPayload();
+                    if (contactList_annonce.size()!=0||!(contactList_annonce.isEmpty())) {
+                        recyclerAdapter_annonce = new RecyclerAdapter_first_annonce_banner(getActivity(), contactList_annonce, recyclerView2);
                         recyclerView2.setAdapter(recyclerAdapter_annonce);
 
                     }

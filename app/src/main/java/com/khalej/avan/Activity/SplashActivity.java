@@ -57,7 +57,7 @@ public class SplashActivity extends AppCompatActivity {
                     else{
                         edt.putString("language","ar");
                         edt.apply();
-                        // startActivity(new Intent(SplashActivity.this, DriverActivity.class));
+                         startActivity(new Intent(SplashActivity.this, Main_driver.class));
                     }
 
                     finish();

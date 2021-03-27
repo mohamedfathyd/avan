@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.HashMap;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -71,25 +72,15 @@ public class Orderb_fragment extends Fragment {
 
         progressDialog = ProgressDialog.show(getContext(), "جاري ارسال طلبك", "Please wait...", false, false);
         progressDialog.show();
+        HashMap<String, String> headers = new HashMap<String, String>();
+        headers.put("Accept","application/json");
+        headers.put("Authorization","Bearer "+ sharedpref.getString("token",""));
         apiinterface = Apiclient_home.getapiClient().create(apiinterface_home.class);
-        Call<ResponseBody> call = apiinterface.confirmShipment(desc.getText().toString(),address);
+        Call<ResponseBody> call = apiinterface.confirmShipment(headers,desc.getText().toString(),address);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                if (response.code() == 422) {
-                    JSONObject jObjError = null;
-                    try {
-                        jObjError = new JSONObject(response.errorBody().string());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                     Toast.makeText(getActivity(),jObjError.toString(),Toast.LENGTH_LONG).show();
-                    //Toast.makeText(getContext(),"هناك بيانات مستخدمة من قبل  أو تأكد من انك ادخلت البيانات بشكل صحيح",Toast.LENGTH_LONG).show();
-                    progressDialog.dismiss();
-                    return;
-                }
+
                 progressDialog.dismiss();
                 Dialog dialog1;
                 dialog1 = new Dialog(getContext());
