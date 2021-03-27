@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/transparent"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+
+
+            android:layout_height="match_parent">
+            <ScrollView
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content">
+                <RelativeLayout
+                    android:paddingLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+
+                    android:paddingRight="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/feedback"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:layout_marginRight="20dp"
+                        android:fontFamily="@font/taj"
+                        android:layout_marginLeft="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:textSize="18dp"
+                        android:id="@+id/title"
+                        android:background="@drawable/backshapeblue"
+                        />
+
+                    <ImageView
+                        android:layout_width="180dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_below="@id/title"
+                        android:layout_height="180dp"
+                        android:background="@drawable/logored"
+                        android:id="@+id/image"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/blue"
+                        android:fontFamily="@font/taj"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/image"
+                        android:layout_marginTop="10dp"
+                        android:id="@+id/des"
+                        android:textSize="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:text="يرجي تقييم تجربتك معنا"
+                        />
+                    <RatingBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/des"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="20dp"
+                        android:numStars="5"
+                        android:id="@+id/rate"
+                        android:theme="@style/RatingBar"
+                        android:rating="2.5"
+                        />
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center_vertical"
+                        android:paddingRight="5dp"
+                        android:background="@drawable/backshapeemptybluew"
+                        android:paddingLeft="5dp"
+                        android:fontFamily="@font/taj"
+                        android:textColor="@color/black"
+                        android:layout_below="@id/rate"
+                        android:layout_marginTop="10dp"
+                        android:hint="قم بكتابة أقتراحك"
+                        android:layout_marginLeft="30dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_height="120dp"
+                        android:layout_weight="6"
+                        android:id="@+id/desc"
+                        android:inputType="text"
+                        />
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/appCompatButtonRegister"
+                        android:background="@drawable/backshaperedg"
+                        android:layout_width="200dp"
+                        android:layout_gravity="center"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        android:textAllCaps="false"
+                        android:layout_centerHorizontal="true"
+                        android:textStyle="bold"
+                        android:layout_below="@+id/desc"
+                        android:fontFamily="@font/taj"
+                        android:textColor="@color/white"
+                        android:text="@string/send" />
+                </RelativeLayout>
+            </ScrollView>
+
+        </androidx.core.widget.NestedScrollView>
+    </RelativeLayout>
+</FrameLayout>

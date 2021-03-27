@@ -46,7 +46,7 @@ public class contact_general_user {
     public class contact_user {
         @SerializedName("token")
         String token;
-        @SerializedName("user_info")
+        @SerializedName("user")
         contact_user_info  user_info;
 
        public String getToken() {
@@ -66,7 +66,7 @@ public class contact_general_user {
         }
     }
     public class contact_user_info {
-     @SerializedName("full_name")
+     @SerializedName("name")
         String full_name;
      @SerializedName("email")
         String email;

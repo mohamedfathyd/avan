@@ -76,7 +76,7 @@ public class contact_general_user_update {
         }
     }
     public class contact_user_info {
-     @SerializedName("full_name")
+     @SerializedName("name")
         String full_name;
      @SerializedName("email")
         String email;

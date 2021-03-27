@@ -135,7 +135,10 @@ Send us product details and we will bring it for you. </string>
     <string name="load">Your request is being registered</string>
     <string name="lang">عربي</string>
     <string name="whoustxt"> It is an application for an e-commerce platform that allows UAE merchants to view and sell products. Our motto is always from home to home. </string>
-
+    <string name = "num_palce"> Building number </string>
+    <string name = "num_room"> Apartment number </string>
+    <string name = "place"> floor </string>
+    <string name="address_type">address type</string>
     <string name="name">name</string>
     <string name="address">Email</string>
     <string name="phone">Phone</string>
@@ -162,7 +165,10 @@ Send us product details and we will bring it for you. </string>
     <string name="terms">Terms and Conditions</string>
     <string name="categorys">Categories</string>
     <string name="mostPopular">Most popular </string>
+    <string name="track_ship">Track Shipment</string>
+    <string name="enter_number_track">enter track num</string>
     <string name="cart">Add To Cart</string>
+    <string name="order_charge">Charge Order</string>
     <string name="myInformation">My Infrmation</string>
     <string name="notification">Notification</string>
     <string name="Current">Current</string>
@@ -175,6 +181,12 @@ Send us product details and we will bring it for you. </string>
     <string name="see">Our vision</string>
     <string name="impo">Our mission</string>
     <string name="addresses">address</string>
+    <string name="register">Register new account</string>
+    <string name="first_name">first name</string>
+    <string name="second_name">second name</string>
+    <string name="national_id">national id</string>
+    <string name="national_data">national date</string>
+    <string name="national_photo">national photo</string>
     <string name="sh">
         Objective of the application:
 1- Touring in an easy electronic environment that allows productive families and allows businesses to grow and prosper.
@@ -231,10 +243,10 @@ Purchase Terms:
     </string-array>
     <string-array name="country_num">
         <item>
-            +966
+            home
            </item>
         <item>
-        +20
+        office
         </item>
         <!--<item>-->
         <!--الكويت-->
@@ -267,5 +279,5 @@ Purchase Terms:
 
     <string name="facebook_app_id">657496788328201</string>
     <string name="fb_login_protocol_scheme">fb657496788328201</string>
-
+    <string name="api_key">AIzaSyCt61evVuEP5REjsrfMPE8gLKEB_vx5wV4</string>
 </resources>

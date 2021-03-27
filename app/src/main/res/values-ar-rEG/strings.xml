@@ -101,6 +101,9 @@
     <string name="myorders">طلباتي</string>
     <string name="Ratethetechnician">قم بتقييم الفني</string>
     <string name="feedback">التقييم والملاحظات</string>
+    <string name="order_charge">طلب شحن</string>
+    <string name="track_ship">تتبع شحنتك</string>
+    <string name="enter_number_track">ادخل رقم التتبع</string>
     <string name="receve">تأكيد الحجز</string>
     <string name="continuee">أستكمال</string>
     <string name="staff">العاملين</string>
@@ -130,6 +133,10 @@
     <string name="ignore">تخطي</string>
     <string name="orderdetail">تفاصيل الطلب</string>
     <string name="success">تم تسجيل تسجيل طلبك بنجاح</string>
+    <string name="num_palce">رقم المبني</string>
+    <string name="num_room">رقم الشقة</string>
+    <string name="place">الدور</string>
+    <string name="address_type">نوع العنوان</string>
     <string name="lang">English</string>
     <string name="share">مشاركة</string>
     <string name="date">تاريخ الميلاد</string>
@@ -174,6 +181,12 @@
     <string name="see">رؤيتنا</string>
     <string name="impo">مهمتنا</string>
     <string name="addresses">العناوين</string>
+    <string name="register">إنشاء حساب جديد</string>
+    <string name="first_name">الاسم الاول</string>
+    <string name="second_name">الاسم الثاني</string>
+    <string name="national_id">رقم الهوية</string>
+    <string name="national_data">تاريخ انتهاء الهوية</string>
+    <string name="national_photo">صورة الهوية</string>
     <string name="sh">
         الهدف من التطبيق :
 1-	التجول في بيئة إلكترونية سهلة تسمح للأسر المنتجة و تسمح للأعمال بالنمو و الازدهار ..
@@ -234,10 +247,10 @@
     </string-array>
     <string-array name="country_num">
         <item>
-            +966
+            المنزل
            </item>
         <item>
-        +20
+        المكتب
         </item>
         <!--<item>-->
         <!--الكويت-->
@@ -268,5 +281,5 @@
     <string name="price">السعر :</string>
     <string name="forgetPasword">إذا كنت بحاجة إلى مساعدة إعادة تعيين كلمة المرور الخاصة بك. نحن بحاجة إلى تأكيد تسجيلك عن طريق رقم بريدك الألكترونى. </string>
     <string name="facebook_app_id">657496788328201</string> <string name="fb_login_protocol_scheme">fb657496788328201</string>
-
+    <string name="api_key">AIzaSyCt61evVuEP5REjsrfMPE8gLKEB_vx5wV4</string>
 </resources>

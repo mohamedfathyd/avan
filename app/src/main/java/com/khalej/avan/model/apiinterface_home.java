@@ -2,6 +2,8 @@ package com.khalej.avan.model;
 
 import java.util.Map;
 
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.DELETE;
@@ -9,8 +11,10 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.HeaderMap;
+import retrofit2.http.Multipart;
 import retrofit2.http.PATCH;
 import retrofit2.http.POST;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -28,6 +32,10 @@ public interface apiinterface_home {
                               @Field("message") String message);
 
     @FormUrlEncoded
+    @POST("api/request-shipments")
+    Call<ResponseBody> confirmShipment(@Field("description") String description, @Field("address_id") String address_id);
+
+    @FormUrlEncoded
     @POST("api/forget/password")
     Call<Reset>getcontacts_ResetPassword(@Field("email") String kayWord);
 
@@ -40,21 +48,15 @@ public interface apiinterface_home {
     @POST("api/forget/password/reset")
     Call<Reset>getcontacts_tokenPassword(@Field("email") String kayWord, @Field("token") String password);
 
+    @GET("api/general?lang=ar")
+    Call<contact_general> getcontacts_generalData();
+
 
 
     @FormUrlEncoded
-    @POST("maishwary/api/canceling_order")
-    Call<ResponseBody> getcontacts_CancelOrder(@Field("order_id") int order_id, @Field("user_id") int user_id);
-
-    @FormUrlEncoded
-    @POST("maishwary/api/rate")
-    Call<ResponseBody> getcontacts_AddRate(@Field("to_id") int to_id, @Field("form_id") int form_id, @Field("rate") Float rate,
+    @POST("api/feedback")
+    Call<ResponseBody> getcontacts_AddRate( @Field("rate") String rate,
                                            @Field("des") String des);
-
-
-    @FormUrlEncoded
-    @POST("maishwary/api/delete_notification")
-    Call<ResponseBody> getcontacts_CancelNotification(@Field("notification_id") int order_id, @Field("user_id") int user_id);
 
 
 
@@ -76,8 +78,10 @@ public interface apiinterface_home {
 
 @FormUrlEncoded
     @PATCH("api/profile/update")
-    Call <contact_general_user_update> updateProfile(@HeaderMap Map<String, String> headers, @Field("full_name") String name,
-                                                     @Field("email") String email, @Field("phone") String phone);
+    Call <contact_general_user_update> updateProfile(@HeaderMap Map<String, String> headers, @Field("name") String name,
+                                                     @Field("email") String email, @Field("phone") String phone,
+                                                     @Field("national_id_expiry_date") String national_id_expiry_date,
+                                                     @Field("national_id") String national_id);
 
 
     @FormUrlEncoded
@@ -114,6 +118,40 @@ public interface apiinterface_home {
     @PATCH("/api/orders/{order_id}/mark-as-delivered")
     Call<ResponseBody> markdelevried(@HeaderMap Map<String, String> headers, @Path("order_id") String order_id);
 
+    @GET("api/general")
+    Call<contact_general_> getcontacts_g(@Query("lang") String lang);
+
+    @FormUrlEncoded
+    @POST("api/shipments/track")
+    Call<content_track> content_track( @Field("track_code") String track_code);
+
+    @Multipart
+    @POST("api/register")
+    Call<contact_general_user>getcontact_newaccount(@Part MultipartBody.Part image, @Part("first_name") RequestBody first_name,
+                                                    @Part("last_name") RequestBody last_name, @Part("email") RequestBody email,
+                                                    @Part("password") RequestBody password, @Part("phone") RequestBody phone,
+                                                    @Part("national_id") RequestBody national_id,
+                                                    @Part("national_id_expiry_date") RequestBody national_id_expiry_date);
+
+    @GET("api/profile/addresses")
+    Call<contact_address> user_address(@HeaderMap Map<String, String> headers);
+
+
+    @DELETE("/api/profile/addresses/{id}/delete")
+    Call<ResponseBody> deleteAddress(@HeaderMap Map<String, String> headers,@Path("id") String id);
+
+    @GET("api/profile/")
+    Call<contact_general_profile> getcontacts_profile(@HeaderMap Map<String, String> headers);
+
+    @FormUrlEncoded
+    @POST("api/profile/addresses")
+    Call<ResponseBody> add_newAddress(@HeaderMap Map<String, String> headers, @Field("address") String address,
+                                      @Field("building_number") int building_number,@Field("floor")int floor,
+                                      @Field("flat_number") int flat_number,
+                                      @Field("additional_info") String additional_info, @Field("landline_number")String landline_number,
+                                      @Field("type") String type,@Field("is_primary") int is_primary ,
+                                      @Field("latitude") double latitude,@Field("longitude") double longitude,
+                                      @Field("city_id") String city_id);
 
 }
 

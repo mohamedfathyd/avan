@@ -27,7 +27,7 @@ public class splashLang extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+        this.getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.blue));
         setContentView(R.layout.activity_splash_lang);
         Calligrapher calligrapher = new Calligrapher(this);
         calligrapher.setFont(this, "Droid.ttf", true);

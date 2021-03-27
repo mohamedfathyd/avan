@@ -26,7 +26,10 @@
         <item name="bottomSheetStyle">@style/MYBottomSheetStyle</item>
     </style>
 
-
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#BEBDBD</item>
+        <item name="colorControlActivated">#FFD700</item>
+    </style>
 
     <style name="MYBottomSheetStyle" parent="Widget.Design.BottomSheet.Modal">
         <item name="android:background">@android:color/holo_red_dark</item>

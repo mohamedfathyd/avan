@@ -34,19 +34,7 @@ public class SplashActivity extends AppCompatActivity {
         Calligrapher calligrapher = new Calligrapher(this);
         calligrapher.setFont(this, "Tajawal-Bold.ttf", true);
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.alpha);
-        if(sharedpref.getString("remember","").trim().equals("yes")){
-            edt.putFloat("totalprice",0);
-            edt.apply();
-            if(sharedpref.getString("type","").equals("customer")){
-                startActivity(new Intent(SplashActivity.this, MainActivity.class));}
-            else{
-                edt.putString("language","ar");
-                edt.apply();
-               // startActivity(new Intent(SplashActivity.this, DriverActivity.class));
-            }
 
-            finish();
-        }
         i = (ImageView) findViewById(R.id.imageView);
         arabic=findViewById(R.id.arabic);
         english=findViewById(R.id.english);
@@ -61,7 +49,19 @@ public class SplashActivity extends AppCompatActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
+                if(sharedpref.getString("remember","").trim().equals("yes")){
+                    edt.putFloat("totalprice",0);
+                    edt.apply();
+                    if(sharedpref.getString("type","").equals("customer")){
+                        startActivity(new Intent(SplashActivity.this, MainActivity.class));}
+                    else{
+                        edt.putString("language","ar");
+                        edt.apply();
+                        // startActivity(new Intent(SplashActivity.this, DriverActivity.class));
+                    }
 
+                    finish();
+                }
             }
 
             @Override

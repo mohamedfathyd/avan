@@ -39,7 +39,7 @@ RelativeLayout lock,code;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.white));
+        this.getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.blue));
 
         setContentView(R.layout.activity_forget_password);
         Calligrapher calligrapher = new Calligrapher(this);
@@ -87,6 +87,7 @@ RelativeLayout lock,code;
             public void onResponse(Call<Reset> call, Response<Reset> response) {
                 reset=response.body();
                 progressDialog.dismiss();
+                try{
                 if(reset.getCode()==200&&reset.isStatus()){
                     Toast.makeText(ForgetPassword.this,"وصلك بريد ألكترونى بكود تفعيل أدخله هنا",Toast.LENGTH_LONG).show();
                      code.setVisibility(View.VISIBLE);
@@ -95,6 +96,8 @@ RelativeLayout lock,code;
                     Toast.makeText(ForgetPassword.this,"هذه البيانات غير مسجلة",Toast.LENGTH_LONG).show();
 
                 }
+            }
+            catch (Exception e){}
             }
 
             @Override

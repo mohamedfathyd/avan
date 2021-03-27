@@ -79,7 +79,7 @@ public class Login extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.white));
+        this.getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.blue));
 
         setContentView(R.layout.activity_login);
         FirebaseMessaging.getInstance().subscribeToTopic("all");
@@ -150,7 +150,7 @@ public class Login extends AppCompatActivity {
         signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               //startActivity(new Intent(Login.this, Regester.class));
+               startActivity(new Intent(Login.this, Register.class));
 
             }
         });

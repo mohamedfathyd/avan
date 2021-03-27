@@ -7,6 +7,7 @@ import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,14 +15,18 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.google.android.libraries.places.api.model.Place;
+import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.khalej.avan.R;
 
 import java.util.Locale;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -30,6 +35,8 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import me.anwarshahriar.calligrapher.Calligrapher;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -44,6 +51,7 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     TextView text1,text2,text3,text4;
     ImageView image1,image2,image3,image4;
+    LinearLayout social,feedback,address,whous,callus,see,impo,terms,logOut;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +71,8 @@ public class MainActivity extends AppCompatActivity
         Configuration config = new Configuration();
         config.locale = locale;
         getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+        Calligrapher calligrapher = new Calligrapher(this);
+        calligrapher.setFont(this, "Tajawal-Bold.ttf", true);
         setContentView(R.layout.activity_main);
         main=findViewById(R.id.main);
         myorders=findViewById(R.id.orders);
@@ -91,6 +101,9 @@ public class MainActivity extends AppCompatActivity
                image2.setBackgroundResource(R.drawable.group10);
                image3.setBackgroundResource(R.drawable.group10);
                image4.setBackgroundResource(R.drawable.iconmaterialaccountcircle);
+                Fragment fragment;
+                fragment = new main_fragment();
+                loadFragment(fragment);
 
             }
         });
@@ -109,6 +122,12 @@ public class MainActivity extends AppCompatActivity
                 image3.setBackgroundResource(R.drawable.group13);
                 image2.setBackgroundResource(R.drawable.group10);
                 image4.setBackgroundResource(R.drawable.iconmaterialaccountcircle);
+                Fragment fragment;
+                fragment = new Track_fragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("track","");
+                fragment.setArguments(bundle);
+                loadFragment(fragment);
             }
         });
         copon.setOnClickListener(new View.OnClickListener() {
@@ -126,6 +145,9 @@ public class MainActivity extends AppCompatActivity
                 image3.setBackgroundResource(R.drawable.group10);
                 image2.setBackgroundResource(R.drawable.new2);
                 image4.setBackgroundResource(R.drawable.iconmaterialaccountcircle);
+                Fragment fragment;
+                fragment = new Ordera_fragment();
+                loadFragment(fragment);
             }
         });
         profile.setOnClickListener(new View.OnClickListener() {
@@ -143,6 +165,9 @@ public class MainActivity extends AppCompatActivity
                 image3.setBackgroundResource(R.drawable.group10);
                 image2.setBackgroundResource(R.drawable.group10);
                 image4.setBackgroundResource(R.drawable.iconmaterialaccountcircle1);
+                Fragment fragment;
+                fragment = new Profile_fragment();
+                loadFragment(fragment);
             }
         });
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -162,8 +187,112 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
+        Fragment fragment = new main_fragment();
+        loadFragment(fragment);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
+        address=header.findViewById(R.id.address);
+        feedback=header.findViewById(R.id.feedback);
+        social=header.findViewById(R.id.social);
+        whous=header.findViewById(R.id.whous);
+        callus=header.findViewById(R.id.callus);
+        see=header.findViewById(R.id.see);
+        impo=header.findViewById(R.id.impo);
+        terms=header.findViewById(R.id.terms);
+        logOut=header.findViewById(R.id.logOut);
+        address.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment;
+                fragment = new Address_fragment();
+                loadFragment(fragment);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        social.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment;
+                fragment = new Social_fragment();
+                loadFragment(fragment);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        whous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment;
+                fragment = new aboutApp_fragment();
+                loadFragment(fragment);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        callus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment;
+                fragment = new CallUs_fragment();
+                loadFragment(fragment);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        terms.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment;
+                fragment = new terms_fragment();
+                loadFragment(fragment);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        see.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment;
+                fragment = new vision_fragment();
+                loadFragment(fragment);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        feedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment;
+                fragment = new Note_fragment();
+                loadFragment(fragment);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        impo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment fragment;
+                fragment = new mission_fragment();
+                loadFragment(fragment);
+                drawer.closeDrawer(GravityCompat.START);
+            }
+        });
+        logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                edt.putInt("id",0);
+                edt.putString("name","");
+                edt.putString("image","");
+                edt.putString("phone","");
+                edt.putString("address","");
+                edt.putString("password","");
+                edt.putString("createdAt","");
+                edt.putInt("type",0);
+                edt.putString("token","");
+                edt.putFloat("wallet",0);
+                edt.putString("status", "");
+                edt.putString("remember","no");
+                edt.apply();
+                startActivity(new Intent(MainActivity.this, Login.class));
+                finish();
+            }
+        });
     }
 
     @Override
@@ -192,4 +321,12 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    private void loadFragment(Fragment fragment) {
+        // load fragment
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frame_container, fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
 }
