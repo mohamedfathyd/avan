@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/maska"
+    android:layoutDirection="rtl"
+    >
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/app_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_alignParentEnd="true"
+        android:background="@color/transparent"
+        local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        local:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ic_power_settings_new_black_24dp"
+            android:id="@+id/logout"
+            android:layout_height="30dp" />
+    </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="تأكيد الطلب"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@+id/app_bar"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/taj"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="18dp"
+        android:id="@+id/name"
+        android:background="@drawable/backshapeblue"
+        />
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:layout_centerInParent="true"
+       >
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/one"
+           android:layout_width="250dp"
+           android:layout_gravity="center"
+           android:layout_below="@id/forgetPassword"
+           android:layout_height="50dp"
+           android:layout_margin="20dp"
+           android:textSize="20dp"
+           android:textAllCaps="false"
+           android:fontFamily="@font/taj"
+           android:textColor="@color/white"
+           android:background="@drawable/backshapered"
+           android:text="تأكيد استلام من افان" />
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/two"
+           android:layout_width="250dp"
+           android:layout_gravity="center"
+           android:layout_below="@id/forgetPassword"
+           android:layout_height="50dp"
+           android:layout_margin="20dp"
+           android:textSize="20dp"
+           android:fontFamily="@font/taj"
+           android:textAllCaps="false"
+           android:textColor="@color/white"
+           android:background="@drawable/backshapered"
+           android:text="تأكيد تسليم الطلب للزبون" />
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/three"
+           android:layout_width="250dp"
+           android:layout_gravity="center"
+           android:layout_below="@id/forgetPassword"
+           android:layout_height="50dp"
+           android:layout_margin="20dp"
+           android:textSize="20dp"
+           android:fontFamily="@font/taj"
+           android:textAllCaps="false"
+           android:textColor="@color/white"
+           android:background="@drawable/backshapered"
+           android:text="تأكيد ألغاء الطلب" />
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/six"
+           android:layout_width="250dp"
+           android:visibility="gone"
+           android:layout_gravity="center"
+           android:layout_below="@id/forgetPassword"
+           android:layout_height="50dp"
+           android:layout_margin="20dp"
+           android:textSize="20dp"
+           android:fontFamily="@font/taj"
+           android:textAllCaps="false"
+           android:textColor="@color/white"
+           android:background="@drawable/backshapered"
+           android:text="أضافة الطلب الى طلباتي" />
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:id="@+id/aa"
+           android:visibility="gone"
+           android:layout_marginTop="5dp" >
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@drawable/backshapeemptybluew"
+               android:layout_marginTop="15dp"
+               android:layout_marginLeft="10dp"
+               android:orientation="horizontal"
+               android:id="@+id/a"
+               android:layout_marginRight="10dp"
+               android:weightSum="6"
+               >
+
+               <EditText
+                   android:layout_width="0dp"
+                   android:layout_gravity="center_vertical"
+                   android:paddingRight="5dp"
+                   android:paddingLeft="5dp"
+                   android:fontFamily="@font/taj"
+                   android:textColor="@color/black"
+                   android:layout_height="95dp"
+                   android:layout_weight="6"
+                   android:id="@+id/message"
+                   android:inputType="text"
+                   android:background="@null"
+                   />
+           </LinearLayout>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_alignParentTop="true"
+               android:layout_marginLeft="30dp"
+               android:layout_marginTop="0dp"
+               android:layout_marginRight="30dp"
+               android:background="#FCFCFC"
+               android:padding="5dp"
+               android:fontFamily="@font/taj"
+               android:text="سبب الألغاء"
+               android:textColor="@color/colorPrimaryDark"
+               android:textSize="15dp" />
+           <androidx.appcompat.widget.AppCompatButton
+               android:id="@+id/four"
+               android:layout_width="150dp"
+               android:layout_gravity="center"
+               android:layout_below="@id/a"
+               android:layout_centerHorizontal="true"
+               android:layout_height="50dp"
+               android:layout_margin="20dp"
+               android:textSize="20dp"
+               android:fontFamily="@font/taj"
+               android:textAllCaps="false"
+               android:textColor="@color/white"
+               android:background="@drawable/backshapered"
+               android:text="تأكيد " />
+       </RelativeLayout>
+   </LinearLayout>
+</RelativeLayout>

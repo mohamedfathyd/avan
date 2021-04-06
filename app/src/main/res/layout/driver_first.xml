@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/maska"
+    android:layoutDirection="rtl"
+    >
+    <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:local="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/app_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:layout_alignParentEnd="true"
+        android:background="@color/transparent"
+        local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        local:popupTheme="@style/ThemeOverlay.AppCompat.Light" >
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_marginEnd="5dp"
+            android:background="@drawable/ic_power_settings_new_black_24dp"
+            android:id="@+id/logout"
+            android:layout_height="30dp" />
+    </androidx.appcompat.widget.Toolbar>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="محمد فتحي عبد الباسط"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@+id/app_bar"
+        android:layout_marginRight="20dp"
+        android:fontFamily="@font/taj"
+        android:layout_marginLeft="20dp"
+        android:layout_alignParentEnd="true"
+        android:textSize="18dp"
+        android:id="@+id/name"
+        android:background="@drawable/backshapeblue"
+        />
+   <LinearLayout
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:layout_centerInParent="true"
+       >
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/one"
+           android:layout_width="250dp"
+           android:layout_gravity="center"
+           android:layout_below="@id/forgetPassword"
+           android:layout_height="50dp"
+           android:layout_margin="20dp"
+           android:textSize="20dp"
+           android:textAllCaps="false"
+           android:fontFamily="@font/taj"
+           android:textColor="@color/white"
+           android:background="@drawable/backshapered"
+           android:text="استلام طلبات من افان" />
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/two"
+           android:layout_width="250dp"
+           android:layout_gravity="center"
+           android:layout_below="@id/forgetPassword"
+           android:layout_height="50dp"
+           android:layout_margin="20dp"
+           android:textSize="20dp"
+           android:fontFamily="@font/taj"
+           android:textAllCaps="false"
+           android:textColor="@color/white"
+           android:background="@drawable/backshapered"
+           android:text="تسليم الطلبات للزبائن" />
+       <androidx.appcompat.widget.AppCompatButton
+           android:id="@+id/three"
+           android:layout_width="300dp"
+           android:layout_gravity="center"
+           android:layout_below="@id/forgetPassword"
+           android:layout_height="50dp"
+           android:layout_margin="20dp"
+           android:textSize="20dp"
+           android:fontFamily="@font/taj"
+           android:textAllCaps="false"
+           android:drawableEnd="@drawable/scan"
+           android:textColor="@color/white"
+           android:background="@drawable/backshapered"
+           android:text="أضافة طلب غير مخصص لي " />
+   </LinearLayout>
+</RelativeLayout>

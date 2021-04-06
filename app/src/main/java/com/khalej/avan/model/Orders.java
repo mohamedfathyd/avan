@@ -80,12 +80,14 @@ public class Orders {
         double weight;
         @SerializedName("size")
         String size;
+        @SerializedName("payment_method")
+        String payment_method;
         @SerializedName("quantity")
         int quantity;
         @SerializedName("description")
         String description;
-        @SerializedName("price")
-        double price;
+        @SerializedName("declared_value")
+        String price;
         @SerializedName("currency")
         String currency;
         @SerializedName("time")
@@ -247,11 +249,11 @@ public class Orders {
             this.description = description;
         }
 
-        public double getPrice() {
+        public String getPrice() {
             return price;
         }
 
-        public void setPrice(double price) {
+        public void setPrice(String price) {
             this.price = price;
         }
 
@@ -325,6 +327,14 @@ public class Orders {
 
         public void setReceiver_address(String receiver_address) {
             this.receiver_address = receiver_address;
+        }
+
+        public String getPayment_method() {
+            return payment_method;
+        }
+
+        public void setPayment_method(String payment_method) {
+            this.payment_method = payment_method;
         }
     }
 }

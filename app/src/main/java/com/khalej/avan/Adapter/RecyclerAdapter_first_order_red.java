@@ -30,11 +30,11 @@ public class RecyclerAdapter_first_order_red extends RecyclerView.Adapter<Recycl
     ProgressDialog progressDialog;
     private SharedPreferences sharedpref;
     private SharedPreferences.Editor edt;
-
-    public RecyclerAdapter_first_order_red(Context context, List<Orders.order_data> contactslist ){
+  int comeFrom;
+    public RecyclerAdapter_first_order_red(Context context, List<Orders.order_data> contactslist ,int comeFrom){
         this.contactslist=contactslist;
         this.context=context;
-
+        this.comeFrom=comeFrom;
     }
     @NonNull
     @Override
@@ -48,6 +48,9 @@ public class RecyclerAdapter_first_order_red extends RecyclerView.Adapter<Recycl
     public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
         sharedpref = context.getSharedPreferences("Education", Context.MODE_PRIVATE);
         edt = sharedpref.edit();
+//        if(contactslist.get(position).isIn_warehouse()==false){
+//            holder.itemView.setVisibility(View.GONE);
+//        }
         holder.address.setText(contactslist.get(position).getSender_address());
         holder.address_receiver.setText(contactslist.get(position).getReceiver_address());
 
@@ -60,12 +63,14 @@ public class RecyclerAdapter_first_order_red extends RecyclerView.Adapter<Recycl
                     intent.putExtra("address_to",contactslist.get(position).getReceiver_address());
                     intent.putExtra("date",contactslist.get(position).getDay());
                     intent.putExtra("time",contactslist.get(position).getTime());
+                    intent.putExtra("payment_method",contactslist.get(position).getPayment_method()+"");
                     intent.putExtra("qunt",contactslist.get(position).getQuantity()+"");
                     intent.putExtra("amount",contactslist.get(position).getPrice()+contactslist.get(position).getCurrency());
                     intent.putExtra("wight",contactslist.get(position).getWeight()+"");
                     intent.putExtra("phone",contactslist.get(position).getReceiver_phone());
                     intent.putExtra("lat",Double.parseDouble(contactslist.get(position).getReceiver_latitude()));
                     intent.putExtra("lng",Double.parseDouble(contactslist.get(position).getReceiver_longitude()));
+                    intent.putExtra("come_from",comeFrom);
                     context.startActivity(intent);
                 }catch (Exception e){}
             }

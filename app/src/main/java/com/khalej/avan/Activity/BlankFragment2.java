@@ -77,7 +77,7 @@ public class BlankFragment2 extends Fragment {
                 try{
                     if(order_data.size()!=0||!(order_data.isEmpty())) {
                         progressBar.setVisibility(View.GONE);
-                        recyclerAdapter=new RecyclerAdapter_first_order_red(getActivity(),order_data);
+                        recyclerAdapter=new RecyclerAdapter_first_order_red(getActivity(),order_data,1);
                         recyclerView.setAdapter(recyclerAdapter);}}
                 catch (Exception e){
                     progressBar.setVisibility(View.GONE);

@@ -14,6 +14,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.khalej.avan.Activity.task_details;
+import com.khalej.avan.Activity.task_details_blue;
 import com.khalej.avan.R;
 import com.khalej.avan.model.Orders;
 import com.khalej.avan.model.apiinterface_home;
@@ -62,7 +64,21 @@ public class RecyclerAdapter_first_order extends RecyclerView.Adapter<RecyclerAd
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent=new Intent(context, task_details_blue.class);
+                try{
+                    intent.putExtra("address_from",contactslist.get(position).getSender_address());
+                    intent.putExtra("address_to",contactslist.get(position).getReceiver_address());
+                    intent.putExtra("date",contactslist.get(position).getDay());
+                    intent.putExtra("time",contactslist.get(position).getTime());
+                    intent.putExtra("payment_method",contactslist.get(position).getPayment_method()+"");
+                    intent.putExtra("qunt",contactslist.get(position).getQuantity()+"");
+                    intent.putExtra("amount",contactslist.get(position).getPrice()+contactslist.get(position).getCurrency());
+                    intent.putExtra("wight",contactslist.get(position).getWeight()+"");
+                    intent.putExtra("phone",contactslist.get(position).getReceiver_phone());
+                    intent.putExtra("lat",Double.parseDouble(contactslist.get(position).getReceiver_latitude()));
+                    intent.putExtra("lng",Double.parseDouble(contactslist.get(position).getReceiver_longitude()));
+                    context.startActivity(intent);
+                }catch (Exception e){}
             }
         });
 

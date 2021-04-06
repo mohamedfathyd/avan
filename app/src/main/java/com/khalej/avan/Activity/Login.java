@@ -208,7 +208,7 @@ public class Login extends AppCompatActivity {
                         if(contactList.getPayload().getUser_info().getType().equals("customer")){
                             startActivity(new Intent(Login.this, MainActivity.class));}
                         else{
-                            startActivity(new Intent(Login.this, Main_driver.class));
+                            startActivity(new Intent(Login.this, driver_first.class));
                         }
 
 

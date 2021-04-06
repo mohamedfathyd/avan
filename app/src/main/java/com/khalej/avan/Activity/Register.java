@@ -106,6 +106,8 @@ public class Register extends AppCompatActivity implements bottomsheet_driverDat
         email=findViewById(R.id.email);
         Terms=findViewById(R.id.check);
         register=findViewById(R.id.appCompatButtonRegisterservcies);
+        sharedpref = getSharedPreferences("Education", Context.MODE_PRIVATE);
+        edt = sharedpref.edit();
         nationalDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -353,6 +355,7 @@ public class Register extends AppCompatActivity implements bottomsheet_driverDat
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        try{
         if (requestCode == MY_CAMERA_PERMISSION_CODE)
         {
             if (grantResults[0] == PackageManager.PERMISSION_GRANTED)
@@ -366,7 +369,7 @@ public class Register extends AppCompatActivity implements bottomsheet_driverDat
             {
                 Toast.makeText(this, "camera permission denied", Toast.LENGTH_LONG).show();
             }
-        }
+        }}catch (Exception e){}
     }
 
     public void fetchInfo() {

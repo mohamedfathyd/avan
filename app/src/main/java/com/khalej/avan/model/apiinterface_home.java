@@ -51,6 +51,9 @@ public interface apiinterface_home {
     @GET("api/banners")
     Call<contact_general> getcontacts_generalData();
 
+    @GET("api/cities")
+    Call<contact_cities> getcontacts_cities();
+
 
 
     @FormUrlEncoded
@@ -153,10 +156,37 @@ public interface apiinterface_home {
                                       @Field("latitude") double latitude,@Field("longitude") double longitude,
                                       @Field("city_id") String city_id);
 
-    @GET("api/shipments/delivered-shipments")
+    @GET("api/shipments/tasks/received")
     Call<Orders> userOrders(@HeaderMap Map<String, String> headers);
 
-    @GET("api/shipments/tasks/received")
+    @GET("api/shipments/tasks/not-received")
     Call<Orders> userOrders_task(@HeaderMap Map<String, String> headers);
+
+    @GET("api/shipments/delivered-shipments")
+    Call<Orders> userOrders_recevier(@HeaderMap Map<String, String> headers);
+
+    @GET("api/shipments/not-delivered-shipments")
+    Call<Orders> userOrders_not_recevier(@HeaderMap Map<String, String> headers);
+
+    @FormUrlEncoded
+    @PATCH("api/shipments/tasks/mark-as-received")
+    Call<ResponseBody> markreceived(@HeaderMap Map<String, String> headers, @Field("track_code") String order_id);
+
+    @FormUrlEncoded
+    @PATCH("api/profile/user-token/update")
+    Call<ResponseBody> updateToken(@HeaderMap Map<String, String> headers, @Field("user_token") String user_token);
+
+    @FormUrlEncoded
+    @PATCH("api/shipments/mark-as-delivered")
+    Call<ResponseBody> markdelevir(@HeaderMap Map<String, String> headers, @Field("track_code") String order_id);
+
+    @FormUrlEncoded
+    @PATCH("api/shipments/mark-as-canceled")
+    Call<ResponseBody> markcancel(@HeaderMap Map<String, String> headers, @Field("track_code") String order_id,
+                                  @Field("driver_comment") String driver_comment);
+
+    @FormUrlEncoded
+    @POST("api/shipments/tasks/assign-to-driver")
+    Call<ResponseBody> content_assign(@HeaderMap Map<String, String> headers,@Field("track_code") String track_code);
 }
 

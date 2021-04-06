@@ -28,7 +28,9 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".Activity.task_details"></activity>
         <activity android:name=".Activity.Main_driver" />
-
+        <activity android:name=".Activity.driver_first"/>
+        <activity android:name=".Activity.Main_driver2"/>
+        <activity android:name=".Activity.task_details_blue"/>
         <provider
             android:name="androidx.core.content.FileProvider"
             android:authorities="com.khalej.avan"
@@ -61,6 +63,24 @@
         </activity>
         <activity android:name=".Activity.Login" />
         <activity android:name=".Activity.ForgetPassword" />
+        <activity android:name=".Activity.ScanQR"
+           ></activity>
+        <activity android:name=".Activity.confirm_first"/>
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <service
+            android:name=".MyFirebaseInstanceIDService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

@@ -22,8 +22,12 @@ import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.khalej.avan.R;
+import com.khalej.avan.model.Apiclient_home;
+import com.khalej.avan.model.apiinterface_home;
 
+import java.util.HashMap;
 import java.util.Locale;
 
 import androidx.annotation.Nullable;
@@ -37,6 +41,10 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import me.anwarshahriar.calligrapher.Calligrapher;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -51,7 +59,9 @@ public class MainActivity extends AppCompatActivity
     DrawerLayout drawer;
     TextView text1,text2,text3,text4;
     ImageView image1,image2,image3,image4;
+    private apiinterface_home apiinterface;
     int x=0;
+    String token="";
     LinearLayout social,feedback,address,whous,callus,see,impo,terms,logOut;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -77,6 +87,7 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         main=findViewById(R.id.main);
         myorders=findViewById(R.id.orders);
+        token=  FirebaseInstanceId.getInstance().getToken();
         copon=findViewById(R.id.copon);
         profile=findViewById(R.id.profile);
         text1=findViewById(R.id.text1);
@@ -206,6 +217,7 @@ public class MainActivity extends AppCompatActivity
         impo=header.findViewById(R.id.impo);
         terms=header.findViewById(R.id.terms);
         logOut=header.findViewById(R.id.logOut);
+        setToken();
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -351,5 +363,23 @@ public class MainActivity extends AppCompatActivity
 
             x=0;
         }
+    }
+    public void setToken(){
+       apiinterface = Apiclient_home.getapiClient().create(apiinterface_home.class);
+        HashMap<String, String> headers = new HashMap<String, String>();
+        headers.put("Accept","application/json");
+        headers.put("Authorization","Bearer "+ sharedpref.getString("token",""));
+        Call<ResponseBody> call = apiinterface.updateToken(headers,token);
+        call.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+            }
+        });
     }
 }

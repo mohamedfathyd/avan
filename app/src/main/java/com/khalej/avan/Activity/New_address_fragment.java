@@ -22,9 +22,12 @@ import com.google.android.libraries.places.api.Places;
 import com.google.android.libraries.places.api.model.Place;
 import com.google.android.libraries.places.widget.Autocomplete;
 import com.google.android.libraries.places.widget.model.AutocompleteActivityMode;
+import com.khalej.avan.Adapter.RecyclerAdapter_first_annonce_banner;
 import com.khalej.avan.R;
 import com.khalej.avan.model.Apiclient_home;
 import com.khalej.avan.model.apiinterface_home;
+import com.khalej.avan.model.contact_cities;
+import com.khalej.avan.model.contact_general;
 import com.khalej.avan.model.contact_general_;
 
 import org.json.JSONException;
@@ -61,6 +64,8 @@ public class New_address_fragment extends Fragment {
     double lng=0.0;
     EditText address,phone,details,num_place,num_room,floor;
     AppCompatButton confirm;
+    String cityId="";
+    contact_cities contact_citie;
     @SuppressLint("WrongConstant")
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -81,6 +86,7 @@ public class New_address_fragment extends Fragment {
         edt = sharedpref.edit();
         Places.initialize(getContext().getApplicationContext(), "AIzaSyCt61evVuEP5REjsrfMPE8gLKEB_vx5wV4");
         address.setFocusable(false);
+        fetchCities();
         address.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -132,7 +138,7 @@ public class New_address_fragment extends Fragment {
                 Integer.parseInt(num_place.getText().toString())
                 ,Integer.parseInt(num_room.getText().toString()), 0
                 ,details.getText().toString(),floor.getText().toString(),
-                h,1 ,lat,lng ,"d073b45b-a739-4221-8e30-7045a3b7adc1");
+                h,1 ,lat,lng ,cityId);
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -156,6 +162,26 @@ public class New_address_fragment extends Fragment {
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 //  Toast.makeText(getContext(), t.toString(), Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+    public  void fetchCities(){
+        apiinterface = Apiclient_home.getapiClient().create(apiinterface_home.class);
+        Call<contact_cities> call = apiinterface.getcontacts_cities();
+        call.enqueue(new Callback<contact_cities>() {
+            @Override
+            public void onResponse(Call<contact_cities> call, Response<contact_cities> response) {
+                contact_citie=response.body();
+                try {
+                   cityId=contact_citie.getPayload().get(0).getId();
+
+                } catch (Exception e) {
+                }
+            }
+
+            @Override
+            public void onFailure(Call<contact_cities> call, Throwable t) {
+
             }
         });
     }

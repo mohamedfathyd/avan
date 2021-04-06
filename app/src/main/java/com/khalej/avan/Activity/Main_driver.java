@@ -41,7 +41,7 @@ public class Main_driver extends AppCompatActivity {
         Calligrapher calligrapher = new Calligrapher(this);
         calligrapher.setFont(this, "Droid.ttf", true);
         this.setTitle("");
-        name.setText("مرحباً "+ sharedpref.getString("name",""));
+        name.setText("استلام طلبات من افان");
         logout=findViewById(R.id.logout);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,8 +72,8 @@ public class Main_driver extends AppCompatActivity {
     public void SetUpViewPager (ViewPager viewpage){
         MyViewPageAdapter Adapter = new MyViewPageAdapter(getSupportFragmentManager());
 
-        Adapter.AddFragmentPage(new BlankFragment2(),"طلبات الأدمن");
-        Adapter.AddFragmentPage(new BlankFragment(), "طلبات المستودع");
+        Adapter.AddFragmentPage(new BlankFragment2(),"لم يتم استلامها");
+        Adapter.AddFragmentPage(new BlankFragment(), "تم استلامها");
         //We Need Fragment class now
 
         viewpage.setAdapter(Adapter);
