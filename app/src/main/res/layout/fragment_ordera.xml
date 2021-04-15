@@ -125,7 +125,7 @@
             android:textColor="@color/red_dark"
             android:layout_weight="3"
             android:fontFamily="@font/taj"
-            android:text="تفاصيل العنوان"
+            android:text="@string/address_details"
             />
         <TextView
             android:layout_width="0dp"
@@ -146,7 +146,7 @@
             android:textSize="10dp"
             android:alpha="0.5"
             android:layout_weight="2"
-            android:text="تفاصيل الشحنة"
+            android:text="@string/order_details"
             />
         <TextView
             android:layout_width="0dp"
@@ -167,7 +167,7 @@
             android:textSize="10dp"
             android:alpha="0.5"
             android:layout_weight="2"
-            android:text="تأكيد"
+            android:text="@string/confirm"
             />
     </LinearLayout>
                     <TextView
@@ -178,7 +178,7 @@
                         android:textSize="25dp"
                         android:layout_marginTop="80dp"
                         android:textColor="@color/blue"
-                        android:text="حدد عنوان جهة الإرسال"
+                        android:text="@string/select_address"
                         android:fontFamily="@font/taj"
                         android:id="@+id/cc"
                         android:layout_below="@id/bb"
@@ -194,7 +194,7 @@
                         android:fontFamily="@font/taj"
                         android:textColor="@color/white"
                         android:textSize="20dp"
-                        android:text="اضغط هنا لتحديد العنوان"
+                        android:text="@string/enter_here"
                         android:layout_height="150dp" />
                 </RelativeLayout>
             </ScrollView>

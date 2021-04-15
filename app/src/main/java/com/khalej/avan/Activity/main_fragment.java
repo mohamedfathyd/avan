@@ -73,7 +73,7 @@ public class main_fragment extends Fragment {
          charge=view.findViewById(R.id.order);
          name=view.findViewById(R.id.name);
         order=view.findViewById(R.id.order);
-        name.setText("مرحباً "+ sharedpref.getString("name",""));
+        name.setText(getResources().getString(R.string.welcome)+ sharedpref.getString("name",""));
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

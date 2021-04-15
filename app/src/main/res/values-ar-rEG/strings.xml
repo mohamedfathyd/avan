@@ -19,6 +19,11 @@
     <string name="myCard">البطاقة الخاصة بي</string>
     <string name="contact">التواصل :</string>
     <string name="numorders">عدد الطلبات</string>
+    <string name="address_details">تفاصيل العنوان</string>
+    <string name="order_details">تفاصيل الشحنة</string>
+    <string name="enter_here">اضغط هنا لتحديد العنوان</string>
+    <string name="request_done">تم طلب الشحن بنجاح</string>
+    <string name="select_address">حدد عنوان جهة الإرسال</string>
     <string name="accuntBalance">رصيد الحساب</string>
     <string name="copuon">كوبون</string>
     <string name="addcopuon">أضافة كوبون</string>
@@ -106,6 +111,14 @@
     <string name="order_charge">طلب شحن</string>
     <string name="track_ship">تتبع شحنتك</string>
     <string name="enter_number_track">ادخل رقم التتبع</string>
+    <string name="number_track"> رقم التتبع</string>
+    <string name="receipt_request">تم استلام الطلب</string>
+    <string name="Shipment_progress">جاري نقل الشحنة</string>
+    <string name="request_delevried">تم تسليم الطلب بنجاح</string>
+    <string name="Congratulations">تهانينا</string>
+    <string name="rate_us">يرجي تقييم تجربتك معنا</string>
+    <string name="rate_write">قم بكتابة أقتراحك</string>
+    <string name="welcome">مرحباً</string>
     <string name="receve">تأكيد الحجز</string>
     <string name="continuee">أستكمال</string>
     <string name="staff">العاملين</string>

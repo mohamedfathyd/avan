@@ -12,6 +12,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.location.Location;
 import android.location.LocationListener;
@@ -41,6 +42,8 @@ import com.khalej.avan.model.Apiclient_home;
 import com.khalej.avan.model.apiinterface_home;
 import com.khalej.avan.model.contact_general_user;
 
+
+import java.util.Locale;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -74,20 +77,35 @@ public class Login extends AppCompatActivity {
     private final static int ALL_PERMISSIONS_RESULT = 101;
     private static final int REQUEST_LOCATION = 1;
     Realm realm;
+    String lang;
+    Intent intent;
     EditText textInputEditTextpassword,textInputEditTextemail;
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.blue));
-
+        sharedpref = getSharedPreferences("Education", Context.MODE_PRIVATE);
+        edt = sharedpref.edit();
+        lang = sharedpref.getString("language", "").trim();
+        if (lang.equals(null)) {
+            edt.putString("language", "ar");
+            lang = "en";
+            edt.apply();
+        }
+        intent = getIntent();
+        Locale locale = new Locale(lang);
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
         setContentView(R.layout.activity_login);
         FirebaseMessaging.getInstance().subscribeToTopic("all");
         appCompatButtonRegisterservcies=findViewById(R.id.appCompatButtonRegisterservcies);
         Calligrapher calligrapher = new Calligrapher(this);
         calligrapher.setFont(this, "Tajawal-Bold.ttf", true);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        getLastLocation();
+       // getLastLocation();
         realm = Realm.getDefaultInstance();
 
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION)
@@ -288,14 +306,14 @@ public class Login extends AppCompatActivity {
     protected void buildAlertMessageNoGps() {
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Please Turn ON your GPS Connection")
+        builder.setMessage("من فضلك قم بفتح الموقع على الخريطه أولاً")
                 .setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, final int id) {
-                        //     startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                             startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton("لا", new DialogInterface.OnClickListener() {
                     public void onClick(final DialogInterface dialog, final int id) {
                         dialog.cancel();
                     }
@@ -303,70 +321,7 @@ public class Login extends AppCompatActivity {
         final AlertDialog alert = builder.create();
         alert.show();
     }
-    @SuppressLint("MissingPermission")
-    private void getLastLocation(){
-        if (checkPermissions()) {
-            if (isLocationEnabled()) {
-                mFusedLocationClient.getLastLocation().addOnCompleteListener(
-                        new OnCompleteListener<Location>() {
-                            @Override
-                            public void onComplete(@NonNull Task<Location> task) {
-                                Location location = task.getResult();
-                                if (location == null) {
-                                    requestNewLocationData();
-                                } else {
-                                    lat=location.getLatitude();
-                                    lng=location.getLongitude();
 
-                                }
-                            }
-                        }
-                );
-            } else {
-                Toast.makeText(this, "Turn on location", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                startActivity(intent);
-            }
-        } else {
-            requestPermissions();
-        }
-    }
-    @SuppressLint("MissingPermission")
-    private void requestNewLocationData(){
-        LocationRequest mLocationRequest = new LocationRequest();
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        mLocationRequest.setInterval(0);
-        mLocationRequest.setFastestInterval(0);
-        mLocationRequest.setNumUpdates(1);
-
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        mFusedLocationClient.requestLocationUpdates(
-                mLocationRequest, mLocationCallback,
-                Looper.myLooper()
-        );
-
-    }
-    private boolean checkPermissions() {
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            return true;
-        }
-        return false;
-    }
-
-    private void requestPermissions() {
-        ActivityCompat.requestPermissions(
-                this,
-                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
-                PERMISSION_ID
-        );
-    }
-    private boolean isLocationEnabled() {
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
-                LocationManager.NETWORK_PROVIDER
-        );
-    }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {

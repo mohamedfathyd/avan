@@ -123,7 +123,7 @@
             android:textColor="@color/red_dark"
             android:layout_weight="3"
             android:fontFamily="@font/taj"
-            android:text="تفاصيل العنوان"
+            android:text="@string/address_details"
             />
         <TextView
             android:layout_width="0dp"
@@ -142,7 +142,7 @@
             android:textStyle="bold"
             android:textColor="@color/red_dark"
             android:layout_weight="3"
-            android:text="تفاصيل الشحنة"
+            android:text="@string/order_details"
             />
         <TextView
             android:layout_width="0dp"
@@ -161,7 +161,7 @@
             android:textStyle="bold"
             android:textColor="@color/red_dark"
             android:layout_weight="2"
-            android:text="تأكيد"
+            android:text="@string/confirm"
             />
     </LinearLayout>
                     <TextView
@@ -172,7 +172,7 @@
                         android:textSize="25dp"
                         android:layout_marginTop="80dp"
                         android:textColor="@color/blue"
-                        android:text="تم طلب الشحن بنجاح"
+                        android:text="@string/request_done"
                         android:fontFamily="@font/taj"
                         android:id="@+id/cc"
                         android:layout_below="@id/bb"

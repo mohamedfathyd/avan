@@ -63,7 +63,7 @@
                         android:id="@+id/des"
                         android:textSize="20dp"
                         android:layout_centerHorizontal="true"
-                        android:text="يرجي تقييم تجربتك معنا"
+                        android:text="@string/rate_us"
                         />
                     <RatingBar
                         android:layout_width="wrap_content"
@@ -86,7 +86,7 @@
                         android:textColor="@color/black"
                         android:layout_below="@id/rate"
                         android:layout_marginTop="10dp"
-                        android:hint="قم بكتابة أقتراحك"
+                        android:hint="@string/rate_write"
                         android:layout_marginLeft="30dp"
                         android:layout_marginRight="30dp"
                         android:layout_height="120dp"
